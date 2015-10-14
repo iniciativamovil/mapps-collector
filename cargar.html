@@ -98,33 +98,26 @@
                     </li>
                     <li>
                         <section id="headerEstacion" class="collapsible-header"><i class="material-icons">my_location</i>ESTACIÓN</section>
-                        <section class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></section>
+                        <section class="collapsible-body">
+                            <table class="highlight">
+                                <tbody>
+                                    <tr>
+                                        <td id="tdEstacion" style="padding-left:20px!important; cursor:pointer;">PINO SUAREZ</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
                     </li>
                 </ul>
             </section>
-            <section class="row center">
-                <div class="chip">
-                    Metro
-                    <i class="material-icons">close</i>
-                </div>
-                <div class="chip">
-                    Línea 1
-                    <i class="material-icons">close</i>
-                </div>
-                <div class="chip">
-                    Pino Suarez
-                    <i class="material-icons">close</i>
-                </div>
-            </section>
+            <section class="criterios row center"></section>
             <section class="fixed-action-btn" style="bottom: 20px; right: 24px;">
                 <a class="btn-floating btn-large red">
                     <i class="large material-icons">mode_edit</i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></i></a></li>
-                    <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-                    <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-                    <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                    <li><a class="btn-floating tooltipped yellow darken-1" data-position="bottom" data-delay="50" data-tooltip="Carga manual"><i class="material-icons">format_quote</i></a></li>
+                    <li><a class="btn-floating tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Subir archivo"><i class="material-icons">attach_file</i></a></li>
                 </ul>
             </section>
             <br><br>
@@ -133,10 +126,6 @@
     <footer class="page-footer pink lighten-1">
         <section class="container">
             <section class="row">
-                <!--<section class="col l6 s12">
-                    <h5 class="white-text">Company Bio</h5>
-                    <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-                </section>-->
                 <section class="col l3 s12">
                     <h5 class="white-text">Contáctanos</h5>
                     <ul>
@@ -155,18 +144,36 @@
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
     <script type="text/javascript">
+        $('.btn-floating').addClass('disabled');
+
         $('#tdSistemaTransporteMetro').bind('click', function () {
+            $('.criterios').append('<section class="chip">METRO<i class="material-icons">close</i></section>&nbsp;');
             $('#headerSistemaTransporte').click();
             $('#headerLineaSistema').click();
+            verificarDisponibilidad();
         });
 
         $('#tdLinea1Metro').bind('click', function () {
+            $('.criterios').append('<section class="chip">LÍNEA 1<i class="material-icons">close</i></section>&nbsp;');
             $('#headerLineaSistema').click();
             $('#headerEstacion').click();
+            verificarDisponibilidad();
         });
 
+        $('#tdEstacion').bind('click', function () {
+            $('.criterios').append('<section class="chip">PINO SUÁREZ<i class="material-icons">close</i></section>');
+            $('#headerEstacion').click();
+            verificarDisponibilidad();
+        });
+
+        verificarDisponibilidad = function () {
+            if ($('.criterios section').length === 3) {
+                $('.btn-floating').removeClass('disabled');
+            }
+        }
+
         $('.btn-floating').bind('click', function () {
-            Materialize.toast('Primero debes escoger los criterios', 3000);
+            Materialize.toast('Esto es una prueba de Mapps', 3000);
         });
     </script>
 </body>
