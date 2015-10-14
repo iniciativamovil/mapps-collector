@@ -32,13 +32,11 @@
             <section class="row">
                 <form class="col s12">
                     <div class="row input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
+                        <input placeholder="Introduzca su usuario" type="text" class="validate">
                     </div>
                     <br>
                     <div class="row input-field col s12">
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Password</label>
+                        <input placeholder="Introduzca su contraseña" type="password" class="validate">
                     </div>
                     <section class="row center">
                         <a class="waves-effect waves-light btn btn-large btn-login pink">Iniciar sesión</a>
@@ -50,10 +48,6 @@
     <footer class="page-footer pink lighten-1">
         <section class="container">
             <section class="row">
-                <!--<section class="col l6 s12">
-                    <h5 class="white-text">Company Bio</h5>
-                    <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-                </section>-->
                 <section class="col l3 s12">
                     <h5 class="white-text">Contáctanos</h5>
                     <ul>
@@ -68,10 +62,20 @@
             </section>
         </section>
     </footer>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
     <script type="text/javascript">
+        $(function () {
+            try {
+                localStorage.setItem("compendio", JSON.stringify({ item_0: 'String', item_1: true }));
+                console.log(localStorage.getItem("compendio"));
+                localStorage.clear();
+            } catch (ex) {
+                console.log(ex);
+            }
+        });
+
         $('.btn-login').bind('click', function () {
             location.href = 'cargar.html';
         });
