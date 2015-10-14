@@ -4,10 +4,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <title>Mapps Collector&reg;</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <style>
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v7/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+        }
+
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
         input[type=text].valid, input[type=text].valid:focus, input[type=password].valid, input[type=password].valid:focus, input[type=email].valid, input[type=email].valid:focus, input[type=url].valid, input[type=url].valid:focus, input[type=time].valid, input[type=time].valid:focus, input[type=date].valid, input[type=date].valid:focus, input[type=datetime-local].valid, input[type=datetime-local].valid:focus, input[type=tel].valid, input[type=tel].valid:focus, input[type=number].valid, input[type=number].valid:focus, input[type=search].valid, input[type=search].valid:focus, textarea.materialize-textarea.valid, textarea.materialize-textarea.valid:focus {
             border-bottom: 1px solid red;
             box-shadow: 0px 1px 0px 0px #4caf50;
@@ -15,12 +37,12 @@
 
             input[type=text].valid + label::after, input[type=text].valid:focus + label::after, input[type=password].valid + label::after, input[type=password].valid:focus + label::after, input[type=email].valid + label::after, input[type=email].valid:focus + label::after, input[type=url].valid + label::after, input[type=url].valid:focus + label::after, input[type=time].valid + label::after, input[type=time].valid:focus + label::after, input[type=date].valid + label::after, input[type=date].valid:focus + label::after, input[type=datetime-local].valid + label::after, input[type=datetime-local].valid:focus + label::after, input[type=tel].valid + label::after, input[type=tel].valid:focus + label::after, input[type=number].valid + label::after, input[type=number].valid:focus + label::after, input[type=search].valid + label::after, input[type=search].valid:focus + label::after, textarea.materialize-textarea.valid + label::after, textarea.materialize-textarea.valid:focus + label::after {
                 content: attr(data-success);
-                color: red!important;
+                color: red !important;
                 opacity: 1;
             }
 
         input[type=text]:not([readonly]):focus + label, input[type=password]:not([readonly]):focus + label, input[type=email]:not([readonly]):focus + label, input[type=url]:not([readonly]):focus + label, input[type=time]:not([readonly]):focus + label, input[type=date]:not([readonly]):focus + label, input[type=datetime-local]:not([readonly]):focus + label, input[type=tel]:not([readonly]):focus + label, input[type=number]:not([readonly]):focus + label, input[type=search]:not([readonly]):focus + label, textarea:not([readonly]).materialize-textarea:focus + label {
-            color: red!important;
+            color: red !important;
         }
     </style>
 </head>
