@@ -8,7 +8,7 @@
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <style>
-        
+
     </style>
 </head>
 <body>
@@ -28,7 +28,7 @@
         <section class="container">
             <h1 class="header center pink-text text-lighten-1">Ingresar</h1>
             <section class="row center">
-                <h5 class="header col s12 light">Por favor introduzca sus credenciales para ingresar al sistema</h5>
+                <h5 class="header col s12 light">Introduzca sus credenciales para comenzar</h5>
             </section>
             <section class="row">
                 <form class="col s12">
@@ -42,7 +42,7 @@
                         <label for="password">Password</label>
                     </div>
                     <section class="row center">
-                        <a class="waves-effect waves-light btn btn-large pink">Iniciar sesión</a>
+                        <a class="waves-effect waves-light btn btn-large btn-login pink">Iniciar sesión</a>
                     </section>
                 </form>
             </section>
@@ -76,7 +76,9 @@
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
     <script type="text/javascript">
-
+        $('.btn-login').bind('click', function () {
+            location.href = 'cargar.html';
+        });
     </script>
 </body>
 </html>
