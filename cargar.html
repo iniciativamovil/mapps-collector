@@ -122,6 +122,8 @@
 
     $('.collection-item.red-transporte').bind('click', function () {
         criterios.red = $(this).data('red');
+        criterios.linea = null;
+        criterios.estacion = null;
         $('#headerSistemaTransporte').click();
         $('#headerLineaSistema').click();
         verificarDisponibilidad();
@@ -129,6 +131,7 @@
 
     $('.collection-item.linea-transporte').bind('click', function () {
         criterios.linea = $(this).data('linea');
+        criterios.estacion = null;
         $('#headerLineaSistema').click();
         $('#headerEstacion').click();
         verificarDisponibilidad();
