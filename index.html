@@ -4,16 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <title>Mapps Collector&reg;</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <style>
-    </style>
+    <link href="css/icon.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <nav class="pink lighten-1" role="navigation">
         <section class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo">Recolector CDMX</a>
+            <a href="#" class="brand-logo">Recolector CDMX</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="#">Iniciar sesión</a></li>
             </ul>
@@ -23,37 +21,31 @@
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </section>
     </nav>
-    <section class="section no-pad-bot" id="index-banner">
-        <section class="container">
+    <section class="section no-pad-bot">
+        <section class="container center">
             <h1 class="header center pink-text text-lighten-1">Ingresar</h1>
-            <section class="row center">
-                <h5 class="header col s12 light">Introduzca sus credenciales</h5>
-            </section>
-            <section class="row">
-                <form class="col s12">
-                    <div class="row input-field col s12">
-                        <input placeholder="Introduzca su usuario" type="text" class="validate">
-                    </div>
-                    <br>
-                    <div class="row input-field col s12">
-                        <input placeholder="Introduzca su contraseña" type="password" class="validate">
-                    </div>
-                    <section class="row center">
-                        <a class="waves-effect waves-light btn btn-large btn-login pink">Iniciar sesión</a>
-                    </section>
-                </form>
-            </section>
+            <h5 class="header col s12 light">Introduzca sus credenciales</h5>
+            <br>
+            <form class="col s12">
+                <section class="input-field col s12">
+                    <input id="txtUsuario" type="text" class="validate" placeholder="Usuario">
+                </section>
+                <br>
+                <section class="input-field col s12">
+                    <input id="txtContrasena" type="password" class="validate" placeholder="Contraseña">
+                </section>
+                <br>
+                <a class="waves-effect waves-light btn btn-large btn-login pink">Iniciar sesión</a>
+            </form>
         </section>
     </section>
     <footer class="page-footer pink lighten-1">
         <section class="container">
-            <section class="row">
-                <section class="col l3 s12">
-                    <h5 class="white-text">Contáctanos</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Comparte con nosotros tus dudas y comentarios</a></li>
-                    </ul>
-                </section>
+            <section class="col l3 s12">
+                <h5 class="white-text">Comparte</h5>
+                <ul>
+                    <li><a class="white-text" href="#!">Envíanos tus dudas y comentarios</a></li>
+                </ul>
             </section>
         </section>
         <section class="footer-copyright">
@@ -66,19 +58,22 @@
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
     <script type="text/javascript">
-        $(function () {
-            try {
-                localStorage.setItem("compendio", JSON.stringify({ item_0: 'String', item_1: true }));
-                console.log(localStorage.getItem("compendio"));
-                localStorage.clear();
-            } catch (ex) {
-                console.log(ex);
+    autenticar = function () {
+        if ($('#txtUsuario').val() !== '') {
+            if ($('#txtContrasena').val() !== '') {
+                localStorage.setItem('sesion', JSON.stringify({ nombreUsuario: $('#txtUsuario').val() }));
+                location.href = 'cargar.html';
+            } else {
+                Materialize.toast('Debe introducir su contraseña', 3000);
             }
-        });
+        } else {
+            Materialize.toast('Debe introducir su usuario', 3000);
+        }
+    }
 
-        $('.btn-login').bind('click', function () {
-            location.href = 'cargar.html';
-        });
+    $('.btn-login').bind('click', function () {
+        autenticar();
+    });
     </script>
 </body>
 </html>
