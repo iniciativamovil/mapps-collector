@@ -65,7 +65,6 @@
                     </section>
                 </li>
             </ul>
-            <br>
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Fast_food_universal_language.jpg">
@@ -76,8 +75,28 @@
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4 abierta">Registrar local<i class="material-icons right">close</i></span>
-                    <p>
-                    </p>
+                    
+                    <form class="col s12">
+                        <div class="input-field col s12">
+                            <input id="input_text" type="text" length="20">
+                            <label for="input_text">Categoría</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="input_text" type="text" length="20">
+                            <label for="input_text">Marca o razón social</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="input_text" type="text" length="20">
+                            <label for="input_text">Comentarios</label>
+                        </div>
+                    </form>
+                    <br>
+                    <section class="row center">
+                        <a href="#">SOLO GUARDAR</a>
+                        <br>
+                        <a href="#">GUARDAR Y CAPTURAR OTRO</a>
+                    </section>
+
                 </div>
             </div>
             <section class="fixed-action-btn" style="bottom: 20px; right: 24px;">
@@ -118,7 +137,7 @@
     $('.card').hide();
     $('.btn-floating').addClass('disabled');
     $('.nombreUsuario').append('Hola, <b>' + JSON.parse(localStorage.getItem('sesion')).nombreUsuario + '</b>');
-    
+
     $('.collection-item.red-transporte').bind('click', function () {
         criterios.red = $(this).data('red');
         criterios.linea = null;
@@ -127,7 +146,7 @@
         $('#headerLineaSistema').click();
         verificarDisponibilidad();
     });
-    
+
     $('.collection-item.linea-transporte').bind('click', function () {
         criterios.linea = $(this).data('linea');
         criterios.estacion = null;
@@ -144,7 +163,7 @@
         verificarDisponibilidad();
     });
 
-    
+
     $('.btn-floating').bind('click', function () {
         Materialize.toast('Esto es una prueba de Mapps', 3000);
     });
