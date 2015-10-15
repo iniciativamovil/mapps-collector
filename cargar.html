@@ -21,33 +21,24 @@
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </section>
     </nav>
-    <section class="section no-pad-bot" id="index-banner">
+    <section class="section no-pad-bot">
         <section class="container">
-            <section class="chip infoUsuario right">
-                <img src="https://pbs.twimg.com/profile_images/640698169815203840/XiCmrNVa.jpg" alt="Contact Person">
+            <section class="chip nombreUsuario right">
+                <img src="https://pbs.twimg.com/profile_images/640698169815203840/XiCmrNVa.jpg" alt="">
             </section>
             <br>
             <h2 class="header center pink-text text-lighten-1">Subir datos</h2>
-            <h5 class="header center col s12 light">Elija los criterios de captura</h5>
+            <h5 class="header center col s12 light">Elije los criterios de captura</h5>
             <br>
             <section class="row">
                 <ul class="collapsible" data-collapsible="accordion">
                     <li>
-                        <section id="headerSistemaTransporte" class="collapsible-header"><i class="material-icons">directions_railway</i>SISTEMA O RED DE TRANSPORTE</section>
-                        <section class="collapsible-body">
-                            <table class="highlight">
-                                <tbody>
-                                    <tr>
-                                        <td id="tdSistemaTransporteMetro" style="padding-left:20px!important; cursor:pointer;">METRO</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">METROBUS</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">TREN LIGERO</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <section id="headerSistemaTransporte" class="collapsible-header"><i class="material-icons">directions_railway</i>RED DE TRANSPORTE</section>
+                        <section class="collapsible-body collection">
+                            <a class="collection-item" data-red="1">Metro</a>
+                            <a class="collection-item" data-red="2">Metrobus</a>
+                            <a class="collection-item" data-red="3">Tren Ligero</a>
+                            <a class="collection-item" data-red="4">Suburbano</a>
                         </section>
                     </li>
                     <li>
@@ -115,17 +106,18 @@
                 </ul>
             </section>
             <section class="criterios row center"></section>
-            <div class="card">
+            <div class="row card">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Fast_food_universal_language.jpg">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Registrar establecimiento<i class="material-icons right">more_vert</i></span>
+                    <span class="card-title activator grey-text text-darken-4">Registrar local<i class="material-icons right">more_vert</i></span>
                     <p>Haga click en la imágen para capturar la información</p>
                 </div>
                 <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Registrar establecimiento<i class="material-icons right">close</i></span>
-                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    <span class="card-title grey-text text-darken-4">Registrar local<i class="material-icons right">close</i></span>
+                    <p>
+                    </p>
                 </div>
             </div>
             <section class="fixed-action-btn" style="bottom: 20px; right: 24px;">
@@ -159,25 +151,36 @@
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
     <script type="text/javascript">
-    $('.btn-floating').addClass('disabled');
-    $('.infoUsuario').append('Bienvenido, ' + JSON.parse(localStorage.getItem('sesion')).nombreUsuario);
 
-    $('#tdSistemaTransporteMetro').bind('click', function () {
-        $('.criterios').append('<section class="chip">METRO<i class="material-icons">close</i></section>&nbsp;');
+    criterios = new Object();
+    criterios.red = null;
+    criterios.linea = null;
+    criterios.estacion = null;
+
+    $('.btn-floating').addClass('disabled');
+    $('.nombreUsuario').append('Hola, <b>' + JSON.parse(localStorage.getItem('sesion')).nombreUsuario + '</b>');
+
+    $('.collection-item').bind('click', function () {
+        if(criterios.red !== null) {
+            $('.criterios').empty();
+        }
+
+        criterios.red = $(this).data('red');
+        $('.criterios').append('<section class="chip">' + $(this).html() + '</section>&nbsp;'); 
         $('#headerSistemaTransporte').click();
         $('#headerLineaSistema').click();
         verificarDisponibilidad();
     });
 
     $('#tdLinea1Metro').bind('click', function () {
-        $('.criterios').append('<section class="chip">LÍNEA 1<i class="material-icons">close</i></section>&nbsp;');
+        $('.criterios').append('<section class="chip">LÍNEA 1</section>&nbsp;');
         $('#headerLineaSistema').click();
         $('#headerEstacion').click();
         verificarDisponibilidad();
     });
 
     $('#tdEstacion').bind('click', function () {
-        $('.criterios').append('<section class="chip">PINO SUÁREZ<i class="material-icons">close</i></section>');
+        $('.criterios').append('<section class="chip">PINO SUÁREZ</section>');
         $('#headerEstacion').click();
         verificarDisponibilidad();
     });

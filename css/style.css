@@ -31,6 +31,18 @@
     background-color: #f6f6f6;
 }
 
+.collection a.collection-item {
+    color: #000;
+}
+
+.collection .collection-item {
+    border-bottom: .1em solid #f6f6f6;
+}
+
+.collection a.collection-item:not(.active):hover {
+    background-color: #f6f6f6;
+}
+
 input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
     border-bottom: .2em solid #e5e5e5;
 }
