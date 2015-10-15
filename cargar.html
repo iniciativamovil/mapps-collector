@@ -27,109 +27,68 @@
                 <img src="https://pbs.twimg.com/profile_images/640698169815203840/XiCmrNVa.jpg" alt="">
             </section>
             <br>
-            <h2 class="header center pink-text text-lighten-1">Subir datos</h2>
+            <h3 class="header center pink-text text-lighten-1">Subir datos</h3>
             <h5 class="header center col s12 light">Elije los criterios de captura</h5>
             <br>
-            <section class="row">
-                <ul class="collapsible" data-collapsible="accordion">
-                    <li>
-                        <section id="headerSistemaTransporte" class="collapsible-header"><i class="material-icons">directions_railway</i>RED DE TRANSPORTE</section>
-                        <section class="collapsible-body collection">
-                            <a class="collection-item" data-red="1">Metro</a>
-                            <a class="collection-item" data-red="2">Metrobus</a>
-                            <a class="collection-item" data-red="3">Tren Ligero</a>
-                            <a class="collection-item" data-red="4">Suburbano</a>
-                        </section>
-                    </li>
-                    <li>
-                        <section id="headerLineaSistema" class="collapsible-header"><i class="material-icons">navigation</i>LÍNEA O RUTA</section>
-                        <section class="collapsible-body">
-                            <table class="highlight">
-                                <tbody>
-                                    <tr>
-                                        <td id="tdLinea1Metro" style="padding-left:20px!important; cursor:pointer;">LÍNEA 1</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">LÍNEA 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">LÍNEA 3</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">LÍNEA 4</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">LÍNEA 5</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">LÍNEA 6</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">LÍNEA 7</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">LÍNEA 8</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">LÍNEA 9</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">LÍNEA 10</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">LÍNEA 11</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-left:20px!important; cursor:pointer;">LÍNEA 12</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                    </li>
-                    <li>
-                        <section id="headerEstacion" class="collapsible-header"><i class="material-icons">my_location</i>ESTACIÓN</section>
-                        <section class="collapsible-body">
-                            <table class="highlight">
-                                <tbody>
-                                    <tr>
-                                        <td class="col s1">
-                                            <img src="http://i0.wp.com/mexicometro.org/wp-content/uploads/metro-pinosuarez.png?resize=500%2C500" style="width:30px;height:30px;" alt="" class="circle">
-                                        </td>
-                                        <td id="tdEstacion">
-                                            PINO SUAREZ
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                    </li>
-                </ul>
-            </section>
-            <section class="criterios row center"></section>
-            <div class="row card">
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                    <section id="headerSistemaTransporte" class="collapsible-header"><i class="material-icons">directions_railway</i>RED DE TRANSPORTE</section>
+                    <section class="collapsible-body collection">
+                        <a class="collection-item red-transporte" data-red="1">Metro</a>
+                        <a class="collection-item red-transporte" data-red="2">Metrobus</a>
+                        <a class="collection-item red-transporte" data-red="3">Tren Ligero</a>
+                        <a class="collection-item red-transporte" data-red="4">Suburbano</a>
+                    </section>
+                </li>
+                <li>
+                    <section id="headerLineaSistema" class="collapsible-header"><i class="material-icons">navigation</i>LÍNEA O RUTA</section>
+                    <section class="collapsible-body collection">
+                        <a class="collection-item linea-transporte" data-linea="1">Línea 1</a>
+                        <a class="collection-item linea-transporte" data-linea="2">Línea 2</a>
+                        <a class="collection-item linea-transporte" data-linea="3">Línea 3</a>
+                        <a class="collection-item linea-transporte" data-linea="4">Línea 4</a>
+                        <a class="collection-item linea-transporte" data-linea="5">Línea 5</a>
+                        <a class="collection-item linea-transporte" data-linea="6">Línea 6</a>
+                        <a class="collection-item linea-transporte" data-linea="7">Línea 7</a>
+                        <a class="collection-item linea-transporte" data-linea="8">Línea 8</a>
+                        <a class="collection-item linea-transporte" data-linea="9">Línea 9</a>
+                        <a class="collection-item linea-transporte" data-linea="10">Línea 10</a>
+                        <a class="collection-item linea-transporte" data-linea="11">Línea 11</a>
+                        <a class="collection-item linea-transporte" data-linea="12">Línea 12</a>
+                    </section>
+                </li>
+                <li>
+                    <section id="headerEstacion" class="collapsible-header"><i class="material-icons">my_location</i>ESTACIÓN</section>
+                    <section class="collapsible-body collection">
+                        <a class="collection-item estacion" data-estacion="1">Pantitlán</a>
+                        <a class="collection-item estacion" data-estacion="2">Isabel La Católica</a>
+                    </section>
+                </li>
+            </ul>
+            <br>
+            <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Fast_food_universal_language.jpg">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Registrar local<i class="material-icons right">more_vert</i></span>
-                    <p>Haga click en la imágen para capturar la información</p>
+                    <span class="card-title activator grey-text text-darken-4 cerrada"></span>
+                    <p>Click en la imágen para capturar la información del establecimiento que va a registrar</p>
                 </div>
                 <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Registrar local<i class="material-icons right">close</i></span>
+                    <span class="card-title grey-text text-darken-4 abierta">Registrar local<i class="material-icons right">close</i></span>
                     <p>
                     </p>
                 </div>
             </div>
             <section class="fixed-action-btn" style="bottom: 20px; right: 24px;">
                 <a class="btn-floating btn-large pink lighten-1">
-                    <i class="large material-icons">mode_edit</i>
+                    <i class="large material-icons">cloud_queue</i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating tooltipped yellow darken-1" data-position="bottom" data-delay="50" data-tooltip="Carga manual"><i class="material-icons">format_quote</i></a></li>
-                    <li><a class="btn-floating tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Subir archivo"><i class="material-icons">attach_file</i></a></li>
+                    <li><a class="btn-floating tooltipped green darken-1" data-position="bottom" data-delay="50" data-tooltip="Guardar"><i class="material-icons">cloud_upload</i></a></li>
+                    <li><a class="btn-floating tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Adjuntar"><i class="material-icons">attach_file</i></a></li>
                 </ul>
             </section>
-            <br><br>
         </section>
     </section>
     <footer class="page-footer pink lighten-1">
@@ -151,49 +110,49 @@
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
     <script type="text/javascript">
-
     criterios = new Object();
     criterios.red = null;
     criterios.linea = null;
     criterios.estacion = null;
 
+    $('.card').hide();
+
     $('.btn-floating').addClass('disabled');
     $('.nombreUsuario').append('Hola, <b>' + JSON.parse(localStorage.getItem('sesion')).nombreUsuario + '</b>');
 
-    $('.collection-item').bind('click', function () {
-        if(criterios.red !== null) {
-            $('.criterios').empty();
-        }
-
+    $('.collection-item.red-transporte').bind('click', function () {
         criterios.red = $(this).data('red');
-        $('.criterios').append('<section class="chip">' + $(this).html() + '</section>&nbsp;'); 
         $('#headerSistemaTransporte').click();
         $('#headerLineaSistema').click();
         verificarDisponibilidad();
     });
 
-    $('#tdLinea1Metro').bind('click', function () {
-        $('.criterios').append('<section class="chip">LÍNEA 1</section>&nbsp;');
+    $('.collection-item.linea-transporte').bind('click', function () {
+        criterios.linea = $(this).data('linea');
         $('#headerLineaSistema').click();
         $('#headerEstacion').click();
         verificarDisponibilidad();
     });
 
-    $('#tdEstacion').bind('click', function () {
-        $('.criterios').append('<section class="chip">PINO SUÁREZ</section>');
+    $('.collection-item.estacion').bind('click', function () {
+        criterios.estacion = $(this).data('estacion');
+        $('span.card-title.grey-text.text-darken-4.cerrada').html($(this).html() + '<i class="material-icons right">more_vert</i>');
+        $('span.card-title.grey-text.text-darken-4.abierta').html($(this).html() + '<i class="material-icons right">close</i>');
         $('#headerEstacion').click();
         verificarDisponibilidad();
     });
 
-    verificarDisponibilidad = function () {
-        if ($('.criterios section').length === 3) {
-            $('.btn-floating').removeClass('disabled');
-        }
-    }
-
+    
     $('.btn-floating').bind('click', function () {
         Materialize.toast('Esto es una prueba de Mapps', 3000);
     });
+
+    verificarDisponibilidad = function () {
+        if (criterios.red !== null && criterios.linea != null && criterios.estacion != null) {
+            $('.btn-floating').removeClass('disabled');
+            $('.card').show();
+        }
+    }
     </script>
 </body>
 </html>
