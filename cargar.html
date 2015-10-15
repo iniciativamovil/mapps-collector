@@ -116,10 +116,9 @@
     criterios.estacion = null;
 
     $('.card').hide();
-
     $('.btn-floating').addClass('disabled');
     $('.nombreUsuario').append('Hola, <b>' + JSON.parse(localStorage.getItem('sesion')).nombreUsuario + '</b>');
-
+    
     $('.collection-item.red-transporte').bind('click', function () {
         criterios.red = $(this).data('red');
         criterios.linea = null;
@@ -128,7 +127,7 @@
         $('#headerLineaSistema').click();
         verificarDisponibilidad();
     });
-
+    
     $('.collection-item.linea-transporte').bind('click', function () {
         criterios.linea = $(this).data('linea');
         criterios.estacion = null;
@@ -154,6 +153,9 @@
         if (criterios.red !== null && criterios.linea != null && criterios.estacion != null) {
             $('.btn-floating').removeClass('disabled');
             $('.card').show();
+        } else {
+            $('.btn-floating').addClass('disabled');
+            $('.card').hide();
         }
     }
     </script>
