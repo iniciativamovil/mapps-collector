@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es_mx">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
@@ -11,7 +11,7 @@
 <body>
     <nav class="pink lighten-1" role="navigation">
         <section class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo">Recolector CDMX</a>
+            <a href="#" class="brand-logo">Recolector CDMX</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="#">Iniciar sesión</a></li>
             </ul>
@@ -28,7 +28,7 @@
             </section>
             <br>
             <h2 class="header center pink-text text-lighten-1">Subir datos</h2>
-            <h5 class="header center col s12 light">Elija los criterios de sus datos</h5>
+            <h5 class="header center col s12 light">Elija los criterios de captura</h5>
             <br>
             <section class="row">
                 <ul class="collapsible" data-collapsible="accordion">
@@ -142,13 +142,11 @@
     </section>
     <footer class="page-footer pink lighten-1">
         <section class="container">
-            <section class="row">
-                <section class="col l3 s12">
-                    <h5 class="white-text">Contáctanos</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Comparte con nosotros tus dudas y comentarios</a></li>
-                    </ul>
-                </section>
+            <section class="col l3 s12">
+                <h5 class="white-text">Comparte</h5>
+                <ul>
+                    <li><a class="white-text" href="#!">Envíanos tus dudas y comentarios</a></li>
+                </ul>
             </section>
         </section>
         <section class="footer-copyright">
@@ -161,38 +159,38 @@
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
     <script type="text/javascript">
-        $('.btn-floating').addClass('disabled');
-        $('.infoUsuario').append('Bienvenido, ' + JSON.parse(localStorage.getItem('sesion')).nombreUsuario);
+    $('.btn-floating').addClass('disabled');
+    $('.infoUsuario').append('Bienvenido, ' + JSON.parse(localStorage.getItem('sesion')).nombreUsuario);
 
-        $('#tdSistemaTransporteMetro').bind('click', function () {
-            $('.criterios').append('<section class="chip">METRO<i class="material-icons">close</i></section>&nbsp;');
-            $('#headerSistemaTransporte').click();
-            $('#headerLineaSistema').click();
-            verificarDisponibilidad();
-        });
+    $('#tdSistemaTransporteMetro').bind('click', function () {
+        $('.criterios').append('<section class="chip">METRO<i class="material-icons">close</i></section>&nbsp;');
+        $('#headerSistemaTransporte').click();
+        $('#headerLineaSistema').click();
+        verificarDisponibilidad();
+    });
 
-        $('#tdLinea1Metro').bind('click', function () {
-            $('.criterios').append('<section class="chip">LÍNEA 1<i class="material-icons">close</i></section>&nbsp;');
-            $('#headerLineaSistema').click();
-            $('#headerEstacion').click();
-            verificarDisponibilidad();
-        });
+    $('#tdLinea1Metro').bind('click', function () {
+        $('.criterios').append('<section class="chip">LÍNEA 1<i class="material-icons">close</i></section>&nbsp;');
+        $('#headerLineaSistema').click();
+        $('#headerEstacion').click();
+        verificarDisponibilidad();
+    });
 
-        $('#tdEstacion').bind('click', function () {
-            $('.criterios').append('<section class="chip">PINO SUÁREZ<i class="material-icons">close</i></section>');
-            $('#headerEstacion').click();
-            verificarDisponibilidad();
-        });
+    $('#tdEstacion').bind('click', function () {
+        $('.criterios').append('<section class="chip">PINO SUÁREZ<i class="material-icons">close</i></section>');
+        $('#headerEstacion').click();
+        verificarDisponibilidad();
+    });
 
-        verificarDisponibilidad = function () {
-            if ($('.criterios section').length === 3) {
-                $('.btn-floating').removeClass('disabled');
-            }
+    verificarDisponibilidad = function () {
+        if ($('.criterios section').length === 3) {
+            $('.btn-floating').removeClass('disabled');
         }
+    }
 
-        $('.btn-floating').bind('click', function () {
-            Materialize.toast('Esto es una prueba de Mapps', 3000);
-        });
+    $('.btn-floating').bind('click', function () {
+        Materialize.toast('Esto es una prueba de Mapps', 3000);
+    });
     </script>
 </body>
 </html>
