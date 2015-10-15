@@ -65,7 +65,8 @@
                     </section>
                 </li>
             </ul>
-            <div class="card">
+            <br>
+            <div id="cardPanel" class="card">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Fast_food_universal_language.jpg">
                 </div>
@@ -75,7 +76,7 @@
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4 abierta">Registrar local<i class="material-icons right">close</i></span>
-                    
+
                     <form class="col s12">
                         <div class="input-field col s12">
                             <input id="input_text" type="text" length="20">
@@ -125,58 +126,60 @@
             </section>
         </section>
     </footer>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
     <script type="text/javascript">
-    criterios = new Object();
-    criterios.red = null;
-    criterios.linea = null;
-    criterios.estacion = null;
-
-    $('.card').hide();
-    $('.btn-floating').addClass('disabled');
-    $('.nombreUsuario').append('Hola, <b>' + JSON.parse(localStorage.getItem('sesion')).nombreUsuario + '</b>');
-
-    $('.collection-item.red-transporte').bind('click', function () {
-        criterios.red = $(this).data('red');
+        criterios = new Object();
+        criterios.red = null;
         criterios.linea = null;
         criterios.estacion = null;
-        $('#headerSistemaTransporte').click();
-        $('#headerLineaSistema').click();
-        verificarDisponibilidad();
-    });
 
-    $('.collection-item.linea-transporte').bind('click', function () {
-        criterios.linea = $(this).data('linea');
-        criterios.estacion = null;
-        $('#headerLineaSistema').click();
-        $('#headerEstacion').click();
-        verificarDisponibilidad();
-    });
+        $('.card').hide();
+        $('.btn-floating').addClass('disabled');
+        $('.nombreUsuario').append('Hola, <b>' + JSON.parse(localStorage.getItem('sesion')).nombreUsuario + '</b>');
 
-    $('.collection-item.estacion').bind('click', function () {
-        criterios.estacion = $(this).data('estacion');
-        $('span.card-title.grey-text.text-darken-4.cerrada').html($(this).html() + '<i class="material-icons right">more_vert</i>');
-        $('span.card-title.grey-text.text-darken-4.abierta').html($(this).html() + '<i class="material-icons right">close</i>');
-        $('#headerEstacion').click();
-        verificarDisponibilidad();
-    });
+        $('.collection-item.red-transporte').bind('click', function () {
+            criterios.red = $(this).data('red');
+            criterios.linea = null;
+            criterios.estacion = null;
+            $('#headerSistemaTransporte').click();
+            $('#headerLineaSistema').click();
+            verificarDisponibilidad();
+        });
+
+        $('.collection-item.linea-transporte').bind('click', function () {
+            criterios.linea = $(this).data('linea');
+            criterios.estacion = null;
+            $('#headerLineaSistema').click();
+            $('#headerEstacion').click();
+            verificarDisponibilidad();
+        });
+
+        $('.collection-item.estacion').bind('click', function () {
+            criterios.estacion = $(this).data('estacion');
+            $('span.card-title.grey-text.text-darken-4.cerrada').html($(this).html() + '<i class="material-icons right">more_vert</i>');
+            $('span.card-title.grey-text.text-darken-4.abierta').html($(this).html() + '<i class="material-icons right">close</i>');
+            $('#headerEstacion').click();
+            verificarDisponibilidad();
+        });
 
 
-    $('.btn-floating').bind('click', function () {
-        Materialize.toast('Esto es una prueba de Mapps', 3000);
-    });
+        $('.btn-floating').bind('click', function () {
+            Materialize.toast('Esto es una prueba de Mapps', 3000);
+        });
 
-    verificarDisponibilidad = function () {
-        if (criterios.red !== null && criterios.linea != null && criterios.estacion != null) {
-            $('.btn-floating').removeClass('disabled');
-            $('.card').show();
-        } else {
-            $('.btn-floating').addClass('disabled');
-            $('.card').hide();
+        verificarDisponibilidad = function () {
+            if (criterios.red !== null && criterios.linea != null && criterios.estacion != null) {
+                $('.btn-floating').removeClass('disabled');
+                $('.card').show();
+                $('html, body').animate({ scrollTop: $("#cardPanel").position().top - 90 }, 400);
+                return false;
+            } else {
+                $('.btn-floating').addClass('disabled');
+                $('.card').hide();
+            }
         }
-    }
     </script>
 </body>
 </html>
