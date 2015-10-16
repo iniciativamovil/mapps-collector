@@ -121,17 +121,17 @@
 
                         <input id="autocompleteCategoria" type="text" placeholder="Categoría" readonly>
 
-                        <input id="input_text" type="text" length="20" placeholder="Tipo de establecimiento">
+                        <input id="autocompleteTipoLocal" type="text" length="20" placeholder="Tipo de establecimiento">
 
-                        <input id="input_text" type="text" length="20" placeholder="Marca o razón social">
+                        <input id="autocompleteMarcas" type="text" length="20" placeholder="Marca o razón social">
 
                         <input id="input_text" type="text" length="50" placeholder="Observaciones">
                         <br>
-                        <br>
+
                         <section class="row center">
                             <a href="#">AGREGAR FOTOGRAFIA</a>
                             <br>
-                            <a href="#">GUARDAR</a>
+                            <a style="cursor:pointer;" onclick="guardar()">GUARDAR</a>
                         </section>
 
                     </form>
@@ -139,7 +139,7 @@
             </div>
             <section class="fixed-action-btn" style="bottom: 20px; right: 24px;">
                 <a class="btn-floating btn-large pink lighten-1">
-                    <i class="large material-icons">cloud_queue</i>
+                    <i id="contador" class="large material-icons">cloud_queue</i>
                 </a>
                 <ul>
                     <li><a class="btn-floating tooltipped green darken-1" data-position="bottom" data-delay="50" data-tooltip="Guardar"><i class="material-icons">cloud_upload</i></a></li>
@@ -197,7 +197,7 @@
         $('.collection-item.estacion').bind('click', function () {
             criterios.estacion = $(this).data('estacion');
             $('span.card-title.grey-text.text-darken-4.cerrada').html($(this).html() + '<i class="material-icons right">more_vert</i>');
-            $('span.card-title.grey-text.text-darken-4.abierta').html($(this).html() + '<i class="material-icons right">close</i>');
+            $('span.card-title.grey-text.text-darken-4.abierta').html($(this).html() + '<i class="material-icons right")">close</i>');
             $('#headerEstacion').click();
             verificarDisponibilidad();
         });
@@ -212,11 +212,22 @@
                 $('.btn-floating').removeClass('disabled');
                 $('.card').show();
                 $('html, body').animate({ scrollTop: $("#cardPanel").position().top - 90 }, 400);
+
+
                 return false;
             } else {
+
                 $('.btn-floating').addClass('disabled');
+
                 $('.card').hide();
             }
+        }
+
+        guardar = function () {
+            Materialize.toast('Establecimiento listo para sincronizar', 3000);
+            $('#autocompleteCategoria').val('');
+            $('#autocompleteTipoLocal').val('');
+            $('#autocompleteMarcas').val('');
         }
 
         $(function () {
@@ -227,7 +238,21 @@
                     'Regalos', 'Otros'].sort(),
                 minLength: 0,
                 selectFirst: true
-            }).click(function () { $(this).autocomplete("search", ""); });
+            }).click(function () {
+                $(this).autocomplete("search", "");
+            });
+
+            $("#autocompleteTipoLocal").autocomplete({
+                source: ['Pizzeria', 'WC', 'Cybercafe', 'Taquilla', 'Tacos', 'Estetica', 'Tienda'].sort(),
+                minLength: 0,
+                selectFirst: true
+            });
+
+            $("#autocompleteMarcas").autocomplete({
+                source: ['Dominos Pizza', 'McDonalds', 'KFC', 'Holanda', 'Coma Bien y Rico', 'Ticketmaster'].sort(),
+                minLength: 0,
+                selectFirst: true
+            });
         });
     </script>
 </body>
