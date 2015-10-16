@@ -171,6 +171,14 @@
 
         // navigator.onLine;
 
+        $(document).on('click.card', '.card', function (e) {
+
+            $('body').css('overflow', 'hidden');
+            if ($(e.target).is($('.card-reveal .card-title')) || $(e.target).is($('.card-reveal .card-title i'))) {
+                $('body').css('overflow', 'visible');
+            }
+        });
+
         $('.card').hide();
         $('.btn-floating').addClass('disabled');
         $('.nombreUsuario').append('Hola, <b>' + JSON.parse(localStorage.getItem('sesion')).nombreUsuario + '</b>');
