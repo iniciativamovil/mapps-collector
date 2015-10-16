@@ -7,6 +7,47 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <style>
+        /*.ui-autocomplete {
+            width:424px;
+            margin:0;
+            padding:0 0 14px 0;
+        }
+
+        .ui-autocomplete-category {
+            width:100px;
+            position: absolute;
+            padding:0 20px;
+            margin:20px 0 0 0;
+        }
+
+        .ui-menu-item {
+            padding-left:140px;
+        }
+
+        .ui-first {
+            padding-top:20px;
+        }*/
+        .ui-autocomplete {
+            background-color: #fff;
+            cursor: pointer;
+            height: 260px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            position: absolute;
+            z-index: 30 !important;
+        }
+
+        .ui-menu-item {
+            padding: 10px 15px;
+        }
+
+        .ui-state-focus {
+            color: White;
+            background: #ec407a;
+            outline: none;
+        }
+    </style>
 </head>
 <body>
     <nav class="pink lighten-1" role="navigation">
@@ -76,28 +117,24 @@
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4 abierta">Registrar local<i class="material-icons right">close</i></span>
-
                     <form class="col s12">
-                        <div class="input-field col s12">
-                            <input id="input_text" type="text" length="20">
-                            <label for="input_text">Categoría</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="input_text" type="text" length="20">
-                            <label for="input_text">Marca o razón social</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input id="input_text" type="text" length="20">
-                            <label for="input_text">Comentarios</label>
-                        </div>
-                    </form>
-                    <br>
-                    <section class="row center">
-                        <a href="#">SOLO GUARDAR</a>
-                        <br>
-                        <a href="#">GUARDAR Y CAPTURAR OTRO</a>
-                    </section>
 
+                        <input id="autocompleteCategoria" type="text" placeholder="Categoría" readonly>
+
+                        <input id="input_text" type="text" length="20" placeholder="Tipo de establecimiento">
+
+                        <input id="input_text" type="text" length="20" placeholder="Marca o razón social">
+
+                        <input id="input_text" type="text" length="50" placeholder="Observaciones">
+                        <br>
+                        <br>
+                        <section class="row center">
+                            <a href="#">AGREGAR FOTOGRAFIA</a>
+                            <br>
+                            <a href="#">GUARDAR</a>
+                        </section>
+
+                    </form>
                 </div>
             </div>
             <section class="fixed-action-btn" style="bottom: 20px; right: 24px;">
@@ -127,6 +164,7 @@
         </section>
     </footer>
     <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
     <script type="text/javascript">
@@ -180,6 +218,17 @@
                 $('.card').hide();
             }
         }
+
+        $(function () {
+            $("#autocompleteCategoria").autocomplete({
+                source: ['Comida', 'Servicio público', 'Cultura', 'Servicio gobierno', 'Tecnología', 'Miscenláneas',
+                    'Ropa y accesorios', 'Periodicos y revistas', 'Entretenimiento', 'Otros medios', 'Naturistas',
+                    'Servicio médico', 'Economía', 'Belleza y salud', 'Monumentos', 'Papelería', 'Ciencia', 'Agua',
+                    'Regalos', 'Otros'].sort(),
+                minLength: 0,
+                selectFirst: true
+            }).click(function () { $(this).autocomplete("search", ""); });
+        });
     </script>
 </body>
 </html>
