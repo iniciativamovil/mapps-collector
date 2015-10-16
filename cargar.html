@@ -28,235 +28,233 @@
         .ui-first {
             padding-top:20px;
             }*/
-            .ui-autocomplete {
-                background-color: #fff;
-                cursor: pointer;
-                height: 170px;
-                overflow-y: scroll;
-                overflow-x: hidden;
-                position: absolute;
-                z-index: 30 !important;
-            }
+        .card .card-reveal {
+            padding-bottom: 0px;
+        }
 
-            .ui-menu-item {
-                padding: 10px 15px;
-            }
+        .ui-autocomplete {
+            background-color: #fff;
+            cursor: pointer;
+            height: 170px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            position: absolute;
+            z-index: 30 !important;
+        }
 
-            .ui-state-focus {
-                color: White;
-                background: #ec407a;
-                outline: none;
-            }
-            </style>
-        </head>
-        <body>
-            <nav class="pink lighten-1" role="navigation">
-                <section class="nav-wrapper container">
-                    <a href="#" class="brand-logo">Recolector CDMX</a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="#">Iniciar sesión</a></li>
-                    </ul>
-                    <ul id="nav-mobile" class="side-nav">
-                        <li><a href="#">Iniciar sesión</a></li>
-                    </ul>
-                    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-                </section>
-            </nav>
-            <section class="section no-pad-bot">
-                <section class="container">
-                    <section class="chip nombreUsuario right">
-                        <img src="https://pbs.twimg.com/profile_images/640698169815203840/XiCmrNVa.jpg" alt="">
-                    </section>
-                    <br>
-                    <h3 class="header center pink-text text-lighten-1">Subir datos</h3>
-                    <h5 class="header center col s12 light">Elije los criterios de captura</h5>
-                    <br>
-                    <ul class="collapsible" data-collapsible="accordion">
-                        <li>
-                            <section id="headerSistemaTransporte" class="collapsible-header"><i class="material-icons">directions_railway</i>RED DE TRANSPORTE</section>
-                            <section class="collapsible-body collection">
-                                <a class="collection-item red-transporte" data-red="1">Metro</a>
-                                <a class="collection-item red-transporte" data-red="2">Metrobus</a>
-                                <a class="collection-item red-transporte" data-red="3">Tren Ligero</a>
-                                <a class="collection-item red-transporte" data-red="4">Suburbano</a>
-                            </section>
-                        </li>
-                        <li>
-                            <section id="headerLineaSistema" class="collapsible-header"><i class="material-icons">navigation</i>LÍNEA O RUTA</section>
-                            <section class="collapsible-body collection">
-                                <a class="collection-item linea-transporte" data-linea="1">Línea 1</a>
-                                <a class="collection-item linea-transporte" data-linea="2">Línea 2</a>
-                                <a class="collection-item linea-transporte" data-linea="3">Línea 3</a>
-                                <a class="collection-item linea-transporte" data-linea="4">Línea 4</a>
-                                <a class="collection-item linea-transporte" data-linea="5">Línea 5</a>
-                                <a class="collection-item linea-transporte" data-linea="6">Línea 6</a>
-                                <a class="collection-item linea-transporte" data-linea="7">Línea 7</a>
-                                <a class="collection-item linea-transporte" data-linea="8">Línea 8</a>
-                                <a class="collection-item linea-transporte" data-linea="9">Línea 9</a>
-                                <a class="collection-item linea-transporte" data-linea="10">Línea 10</a>
-                                <a class="collection-item linea-transporte" data-linea="11">Línea 11</a>
-                                <a class="collection-item linea-transporte" data-linea="12">Línea 12</a>
-                            </section>
-                        </li>
-                        <li>
-                            <section id="headerEstacion" class="collapsible-header"><i class="material-icons">my_location</i>ESTACIÓN</section>
-                            <section class="collapsible-body collection">
-                                <a class="collection-item estacion" data-estacion="1">Pantitlán</a>
-                                <a class="collection-item estacion" data-estacion="2">Isabel La Católica</a>
-                            </section>
-                        </li>
-                    </ul>
-                    <br>
-                    <div id="cardPanel" class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Fast_food_universal_language.jpg">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4 cerrada"></span>
-                            <p>Click en la imágen para capturar la información del establecimiento que va a registrar</p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4 abierta">Registrar local<i class="material-icons right">close</i></span>
-                            <form class="col s12">
+        .ui-menu-item {
+            padding: 10px 15px;
+        }
 
-                                <input id="autocompleteCategoria" type="text" placeholder="Categoría" readonly>
-
-                                <input id="autocompleteTipoLocal" type="text" placeholder="Tipo de establecimiento">
-
-                                <input id="autocompleteMarcas" type="text" placeholder="Marca o razón social">
-
-                                <input id="input_text" type="text" placeholder="Observaciones">
-                                <br>
-
-                                <section class="row center">
-                                    <a href="#">AGREGAR FOTOGRAFIA</a>
-                                    <br>
-                                    <a style="cursor:pointer;" onclick="guardar()">GUARDAR</a>
-                                </section>
-
-                            </form>
-                        </div>
-                    </div>
-                    <section class="fixed-action-btn" style="bottom: 20px; right: 24px;">
-                        <a class="btn-floating btn-large pink lighten-1">
-                            <i id="contador" class="large material-icons">cloud_queue</i>
-                        </a>
-                        <ul>
-                            <li><a class="btn-floating tooltipped green darken-1" data-position="bottom" data-delay="50" data-tooltip="Guardar"><i class="material-icons">cloud_upload</i></a></li>
-                            <li><a class="btn-floating tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Adjuntar"><i class="material-icons">attach_file</i></a></li>
-                        </ul>
-                    </section>
-                </section>
+        .ui-state-focus {
+            color: White;
+            background: #ec407a;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="pink lighten-1" role="navigation">
+        <section class="nav-wrapper container">
+            <a href="#" class="brand-logo">Recolector CDMX</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Iniciar sesión</a></li>
+            </ul>
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">Iniciar sesión</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </section>
+    </nav>
+    <section class="section no-pad-bot">
+        <section class="container">
+            <section class="chip nombreUsuario right">
+                <img src="https://pbs.twimg.com/profile_images/640698169815203840/XiCmrNVa.jpg" alt="">
             </section>
-            <footer class="page-footer pink lighten-1">
-                <section class="container">
-                    <section class="col l3 s12">
-                        <h5 class="white-text">Comparte</h5>
-                        <ul>
-                            <li><a class="white-text" href="#!">Envíanos tus dudas y comentarios</a></li>
-                        </ul>
+            <br>
+            <h3 class="header center pink-text text-lighten-1">Subir datos</h3>
+            <h5 class="header center col s12 light">Elije los criterios de captura</h5>
+            <br>
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                    <section id="headerSistemaTransporte" class="collapsible-header"><i class="material-icons">directions_railway</i>RED DE TRANSPORTE</section>
+                    <section class="collapsible-body collection">
+                        <a class="collection-item red-transporte" data-red="1">Metro</a>
+                        <a class="collection-item red-transporte" data-red="2">Metrobus</a>
+                        <a class="collection-item red-transporte" data-red="3">Tren Ligero</a>
+                        <a class="collection-item red-transporte" data-red="4">Suburbano</a>
                     </section>
-                </section>
-                <section class="footer-copyright">
-                    <section class="container">
-                        &copy; Iniciativa Móvil 2015
+                </li>
+                <li>
+                    <section id="headerLineaSistema" class="collapsible-header"><i class="material-icons">navigation</i>LÍNEA O RUTA</section>
+                    <section class="collapsible-body collection">
+                        <a class="collection-item linea-transporte" data-linea="1">Línea 1</a>
+                        <a class="collection-item linea-transporte" data-linea="2">Línea 2</a>
+                        <a class="collection-item linea-transporte" data-linea="3">Línea 3</a>
+                        <a class="collection-item linea-transporte" data-linea="4">Línea 4</a>
+                        <a class="collection-item linea-transporte" data-linea="5">Línea 5</a>
+                        <a class="collection-item linea-transporte" data-linea="6">Línea 6</a>
+                        <a class="collection-item linea-transporte" data-linea="7">Línea 7</a>
+                        <a class="collection-item linea-transporte" data-linea="8">Línea 8</a>
+                        <a class="collection-item linea-transporte" data-linea="9">Línea 9</a>
+                        <a class="collection-item linea-transporte" data-linea="10">Línea 10</a>
+                        <a class="collection-item linea-transporte" data-linea="11">Línea 11</a>
+                        <a class="collection-item linea-transporte" data-linea="12">Línea 12</a>
                     </section>
-                </section>
-            </footer>
-            <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
-            <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-            <script type="text/javascript" src="js/materialize.js"></script>
-            <script type="text/javascript" src="js/init.js"></script>
-            <script type="text/javascript">
-            criterios = new Object();
-            criterios.red = null;
+                </li>
+                <li>
+                    <section id="headerEstacion" class="collapsible-header"><i class="material-icons">my_location</i>ESTACIÓN</section>
+                    <section class="collapsible-body collection">
+                        <a class="collection-item estacion" data-estacion="1">Pantitlán</a>
+                        <a class="collection-item estacion" data-estacion="2">Isabel La Católica</a>
+                    </section>
+                </li>
+            </ul>
+            <br>
+            <div id="cardPanel" class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Fast_food_universal_language.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4 cerrada"></span>
+                    <p>Click en la imágen para capturar la información del establecimiento que va a registrar</p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4 abierta">Registrar local<i class="material-icons right">close</i></span>
+                    <form class="col s12">
+                        <input id="autocompleteCategoria" type="text" placeholder="Categoría" readonly>
+                        <input id="autocompleteTipoLocal" type="text" placeholder="Tipo de establecimiento">
+                        <input id="autocompleteMarcas" type="text" placeholder="Marca o razón social">
+                        <textarea id="textarea1" class="materialize-textarea" placeholder="Observaciones"></textarea>
+                        <br>
+                        <section class="row center">
+                            <a href="#">AGREGAR FOTOGRAFIA</a>
+                        </section>
+                    </form>
+                </div>
+            </div>
+            <section class="fixed-action-btn" style="bottom: 20px; right: 24px;">
+                <a class="btn-floating btn-large pink lighten-1">
+                    <i id="contador" class="large material-icons">cloud_queue</i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating tooltipped green darken-1" data-position="bottom" data-delay="50" data-tooltip="Guardar"><i class="material-icons">cloud_upload</i></a></li>
+                    <li><a class="btn-floating tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Adjuntar"><i class="material-icons">attach_file</i></a></li>
+                </ul>
+            </section>
+        </section>
+    </section>
+    <footer class="page-footer pink lighten-1">
+        <section class="container">
+            <section class="col l3 s12">
+                <h5 class="white-text">Comparte</h5>
+                <ul>
+                    <li><a class="white-text" href="#!">Envíanos tus dudas y comentarios</a></li>
+                </ul>
+            </section>
+        </section>
+        <section class="footer-copyright">
+            <section class="container">
+                &copy; Iniciativa Móvil 2015
+            </section>
+        </section>
+    </footer>
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>
+    <script type="text/javascript">
+        criterios = new Object();
+        criterios.red = null;
+        criterios.linea = null;
+        criterios.estacion = null;
+
+        // navigator.onLine;
+
+        $('.card').hide();
+        $('.btn-floating').addClass('disabled');
+        $('.nombreUsuario').append('Hola, <b>' + JSON.parse(localStorage.getItem('sesion')).nombreUsuario + '</b>');
+
+        $('.collection-item.red-transporte').bind('click', function () {
+            criterios.red = $(this).data('red');
             criterios.linea = null;
             criterios.estacion = null;
+            $('#headerSistemaTransporte').click();
+            $('#headerLineaSistema').click();
+            verificarDisponibilidad();
+        });
 
-            $('.card').hide();
-            $('.btn-floating').addClass('disabled');
-            $('.nombreUsuario').append('Hola, <b>' + JSON.parse(localStorage.getItem('sesion')).nombreUsuario + '</b>');
+        $('.collection-item.linea-transporte').bind('click', function () {
+            criterios.linea = $(this).data('linea');
+            criterios.estacion = null;
+            $('#headerLineaSistema').click();
+            $('#headerEstacion').click();
+            verificarDisponibilidad();
+        });
 
-            $('.collection-item.red-transporte').bind('click', function () {
-                criterios.red = $(this).data('red');
-                criterios.linea = null;
-                criterios.estacion = null;
-                $('#headerSistemaTransporte').click();
-                $('#headerLineaSistema').click();
-                verificarDisponibilidad();
-            });
-
-            $('.collection-item.linea-transporte').bind('click', function () {
-                criterios.linea = $(this).data('linea');
-                criterios.estacion = null;
-                $('#headerLineaSistema').click();
-                $('#headerEstacion').click();
-                verificarDisponibilidad();
-            });
-
-            $('.collection-item.estacion').bind('click', function () {
-                criterios.estacion = $(this).data('estacion');
-                $('span.card-title.grey-text.text-darken-4.cerrada').html($(this).html() + '<i class="material-icons right">more_vert</i>');
-                $('span.card-title.grey-text.text-darken-4.abierta').html($(this).html() + '<i class="material-icons right")">close</i>');
-                $('#headerEstacion').click();
-                verificarDisponibilidad();
-            });
+        $('.collection-item.estacion').bind('click', function () {
+            criterios.estacion = $(this).data('estacion');
+            $('span.card-title.grey-text.text-darken-4.cerrada').html($(this).html() + '<i class="material-icons right">more_vert</i>');
+            $('span.card-title.grey-text.text-darken-4.abierta').html($(this).html() + '<i class="material-icons right")">close</i>');
+            $('#headerEstacion').click();
+            verificarDisponibilidad();
+        });
 
 
-            $('.btn-floating').bind('click', function () {
-                Materialize.toast('Esto es una prueba de Mapps', 3000);
-            });
+        $('.btn-floating').bind('click', function () {
+            Materialize.toast('Esto es una prueba de Mapps', 3000);
+        });
 
-            verificarDisponibilidad = function () {
-                if (criterios.red !== null && criterios.linea != null && criterios.estacion != null) {
-                    $('.btn-floating').removeClass('disabled');
-                    $('.card').show();
-                    $('html, body').animate({ scrollTop: $("#cardPanel").position().top - 90 }, 400);
+        verificarDisponibilidad = function () {
+            if (criterios.red !== null && criterios.linea != null && criterios.estacion != null) {
+                $('.btn-floating').removeClass('disabled');
+                $('.card').show();
+                $('html, body').animate({ scrollTop: $("#cardPanel").position().top - 90 }, 400);
 
 
-                    return false;
-                } else {
+                return false;
+            } else {
 
-                    $('.btn-floating').addClass('disabled');
+                $('.btn-floating').addClass('disabled');
 
-                    $('.card').hide();
-                }
+                $('.card').hide();
             }
+        }
 
-            guardar = function () {
-                var r = confirm("¿Está seguro de guardar?");
-                if (r == true) {
-                    Materialize.toast('Establecimiento listo para sincronizar', 3000);
-                    $('#autocompleteCategoria').val('');
-                    $('#autocompleteTipoLocal').val('');
-                    $('#autocompleteMarcas').val('');
-                }
+        guardar = function () {
+            var r = confirm("¿Está seguro de guardar?");
+            if (r == true) {
+                Materialize.toast('Establecimiento listo para sincronizar', 3000);
+                $('#autocompleteCategoria').val('');
+                $('#autocompleteTipoLocal').val('');
+                $('#autocompleteMarcas').val('');
             }
+        }
 
-            $(function () {
-                $("#autocompleteCategoria").autocomplete({
-                    source: ['Comida', 'Servicio público', 'Cultura', 'Servicio gobierno', 'Tecnología', 'Miscenláneas',
-                    'Ropa y accesorios', 'Periodicos y revistas', 'Entretenimiento', 'Otros medios', 'Naturistas',
-                    'Servicio médico', 'Economía', 'Belleza y salud', 'Monumentos', 'Papelería', 'Ciencia', 'Agua',
-                    'Regalos', 'Otros'].sort(),
-                    minLength: 0,
-                    selectFirst: true
-                }).click(function () {
-                    $(this).autocomplete("search", "");
-                });
-
-                $("#autocompleteTipoLocal").autocomplete({
-                    source: ['Pizzeria', 'WC', 'Cybercafe', 'Taquilla', 'Tacos', 'Estetica', 'Tienda'].sort(),
-                    minLength: 0,
-                    selectFirst: true
-                });
-
-                $("#autocompleteMarcas").autocomplete({
-                    source: ['Dominos Pizza', 'McDonalds', 'KFC', 'Holanda', 'Coma Bien y Rico', 'Ticketmaster'].sort(),
-                    minLength: 0,
-                    selectFirst: true
-                });
+        $(function () {
+            $("#autocompleteCategoria").autocomplete({
+                source: ['Comida', 'Servicio público', 'Cultura', 'Servicio gobierno', 'Tecnología', 'Miscenláneas',
+                'Ropa y accesorios', 'Periodicos y revistas', 'Entretenimiento', 'Otros medios', 'Naturistas',
+                'Servicio médico', 'Economía', 'Belleza y salud', 'Monumentos', 'Papelería', 'Ciencia', 'Agua',
+                'Regalos', 'Otros'].sort(),
+                minLength: 0,
+                selectFirst: true
+            }).click(function () {
+                $(this).autocomplete("search", "");
             });
-</script>
+
+            $("#autocompleteTipoLocal").autocomplete({
+                source: ['Pizzeria', 'WC', 'Cybercafe', 'Taquilla', 'Tacos', 'Estetica', 'Tienda'].sort(),
+                minLength: 0,
+                selectFirst: true
+            });
+
+            $("#autocompleteMarcas").autocomplete({
+                source: ['Dominos Pizza', 'McDonalds', 'KFC', 'Holanda', 'Coma Bien y Rico', 'Ticketmaster'].sort(),
+                minLength: 0,
+                selectFirst: true
+            });
+        });
+    </script>
 </body>
 </html>
