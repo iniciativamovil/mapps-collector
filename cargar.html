@@ -174,8 +174,10 @@
         $(document).on('click.card', '.card', function (e) {
 
             $('body').css('overflow', 'hidden');
+            $('body').unbind('touchmove');
             if ($(e.target).is($('.card-reveal .card-title')) || $(e.target).is($('.card-reveal .card-title i'))) {
                 $('body').css('overflow', 'visible');
+                $('body').bind('touchmove');
             }
         });
 
